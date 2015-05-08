@@ -1,1 +1,22 @@
 
+User Stories:
+
+A user should be able to create an account 
+A user should be able to view restaurant listings
+A user should be able to select a restaurant and view the (drink) menu
+A user should be able to see the wait time at selected restaurant 
+A user should be able to select items off a menu 
+A user should be able to filter restaurants
+
+
+Icebox: 
+A user should be able to view the entire menu (food & drinks) 
+A user should be able to make a reservation with order 
+A user should be able to favorite a restaurant 
+A user should be able to submit a menu order 
+A user should be able to register as a vendor 
+A user should be able to add their restaurant 
+A user should be able to see recent tweets about the restaurant 
+A user should be able find a link to reviews for selected restaurant
+
+
