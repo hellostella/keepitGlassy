@@ -1,0 +1,26 @@
+**Index.html.erb Geocoder Forms/Search logic**
+<!-- <%= form_tag locations_path, :method => :get do %>
+<div>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "Search Near", :name => nil %>
+</div>
+<% end %>
+
+
+<table>
+  <tr>
+    <th> Address </th>
+    <th> Latitude </th>
+    <th> Longitude </th>
+  </tr>
+<% @locations.each do |location| %>
+<tr>
+    <td><%= location.address %></td>
+    <td><%= location.latitude %></td>
+    <td><%= location.longitude %></td>
+    <td><%= link_to "Show", location %></td>
+    <td><%= link_to "Edit", edit_location_path(location) %></td>
+</tr>
+<% end %>
+</table> -->
+-----------------------------------------------------------

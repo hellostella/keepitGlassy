@@ -1,16 +1,3 @@
-<p>
-  <strong> Address:</strong>
-  <%= @location.address %>
-</p>
-<p>
-  <strong> Latitude:</strong>
-  <%= @location.latitude %>
-</p>
-<p>
-  <strong>Longitude:</strong>
-  <%= @location.longitude %>
-</p>
-<ul>
-<% for location in @location.nearbys(5) %>
-<li><%= link_to location.address %>
-</ul>
+<div class= "city">
+  <%= @location.city %>
+  <%= @location.restaurants %>
