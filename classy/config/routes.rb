@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :views
+  root "locations#index"
   devise_for :users
   resources :locations
   resources :restaurants

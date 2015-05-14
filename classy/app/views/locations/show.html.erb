@@ -1,3 +1,37 @@
 <div class= "city">
   <%= @location.city %>
-  <%= @location.restaurants %>
+</div>
+
+<div class= "restaurant">
+</div>
+
+<div id="content">
+  <h1><%= @location.city %></h1>
+
+
+  <h2><%= @location.city %>'s Restaurants </h2>
+
+
+  <% @location.restaurants.each do |restaurant| %>
+  <table>
+  <tr><%= restaurant.name %></tr>
+  <% image = restaurant.image_url %>
+  <h2><img src= "<%= image %>"></h2>
+  <tr><%= link_to restaurant.name, restaurant %></tr>
+</table>
+<% end %>
+
+
+
+
+
+<input type= "text" size= "40" input value= "Enter any Special Requests">
+<tr>Ready to Order?</tr>
+
+</div>
+
+<div id="footer">
+  <div style="float: right;">
+  <a href="#" title="Contact Us"><img src="img/contact.gif" alt="Contact" /></a>
+  </div>
+</div>

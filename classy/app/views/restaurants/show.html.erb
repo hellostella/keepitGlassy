@@ -1,0 +1,66 @@
+
+<html>
+<head>
+	<title><%= @restaurant.name %> </title>
+</head>
+<body>
+<div id="wrap">
+	<div id="header">
+		<div id="headerlinks">
+    <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %>
+    <%= link_to 'Sign In', new_user_session_path, :method => :create %>
+		</div>
+    <h1>keepitClassy</h1>
+	</div>
+
+	<div id="order-items">
+	   <h2>Your Order</h2>
+		<div id="box">
+		<ul>
+		</ul>
+		</div>
+		<h2>Order Now! Ready when you Arrive! </h2>
+  	<input type= "textarea" input value= "Enter any Special Requests">
+		<p> Order Total = $ <p>
+  	<h2>Ready to Order?<input type= "submit" input id="order"></h2>
+
+
+	</div>
+
+	<div id="content">
+		<h1><%= @restaurant.name %></h1>
+		<h2><span><img src= "<%= @restaurant.image_url %>"></span></h2>
+
+		<h2>Signature Drinks <span class="post-span">Please Choose Below</span></h2>
+    <ul>
+    <% @restaurant.menus.each do |menu| %>
+    <li id= "<%= menu.id %>"><%= menu.drink_name %> : $<%= menu.price %>.00<input type= "submit" id= "selection" value="Select"></li>
+    </ul>
+		<script>
+
+		$(document).ready(function(){
+	  var submitOrder = $('#<%= menu.id %>')
+
+	  submitOrder.on("click", function(event){
+		var userSelection = $('#<%= menu.id %>').val()
+				var drinkName = $("#<%= menu.id %>").text()
+	      $("#box").after('<li id="order-li"></li>')
+				$('#order-li').text( drinkName , userSelection)
+
+
+
+	  })
+	})
+</script>
+    <% end %>
+
+
+	</div>
+
+	<div id="footer">
+		<div style="float: right;">
+
+	</div>
+</div>
+</body>
+</html>

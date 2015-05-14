@@ -14,3 +14,25 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//
+
+
+$(document).ready(function(){
+var submitOrder = $('#order')
+
+submitOrder.on("click", function(event){
+      event.preventDefault()
+            $.ajax({
+              url: "/locations/restaurants",
+              type: "GET",
+              dataType: "json",
+              context: this
+            }).done(function( response){
+              console.log( response[0].City )
+              $("#footer").append(response)
+            }).fail(function(){
+              console.log("AJAX request Failed!")
+            })
+
+          });
+        })
