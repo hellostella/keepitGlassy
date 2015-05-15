@@ -1,6 +1,22 @@
 <div class="city">
 <ul>
   <% @locations.each do |location| %>
-      <li><%= link_to location.city, location %></li>
+      <li><%= link_to(location.city, location, data: {location_id: location.id}) %>
+      </li>
   <% end %>
 </ul>
+
+<ul id="restaurants"> Restaurants
+  <!-- Placeholder for restaurants. Populated by js -->
+</ul>
+
+
+
+<script>
+$(document).ready(function(){
+  var selectCity = $('.city')
+  selectCity.on("click", function(event){
+    fetchLocations(event)
+  });
+})
+</script>

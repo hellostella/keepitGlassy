@@ -24,3 +24,15 @@
 <% end %>
 </table> -->
 -----------------------------------------------------------
+Set restaurant images as backgrounds (trying)
+/*<style>
+<% @location.restaurants.each do |restaurant| %>
+<% image = restaurant.image_url %>
+
+.restaurant{
+  background-image: url("<%= image %>">);
+
+
+}
+<% end %>
+</style>*/

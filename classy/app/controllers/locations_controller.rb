@@ -2,12 +2,14 @@ class LocationsController < ApplicationController
 
     def index
       @locations = Location.all
-      # render json: @locations
     end
 
     def show
       @location = Location.find(params[:id])
-      # render json: @location
+      respond_to do |format|
+        format.html { render :show }
+        format.json { render json: @location }
+      end
     end
     #
     # def new
@@ -25,8 +27,10 @@ class LocationsController < ApplicationController
 
     def edit
       @location = Location.find(params[:id])
+      respond_to do |format|
+        format.html { render :show }
+        format.json { render json: @location }
     end
-
   end
 
 
@@ -63,3 +67,4 @@ class LocationsController < ApplicationController
 #
 #   end
 # end
+end

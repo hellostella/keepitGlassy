@@ -1,13 +1,23 @@
 class RestaurantsController < ApplicationController
 
     def index
-      @restaurants = Restaurant.all
-      # render json: @restaurants
+      if location_id = params[:location_id]
+        @restaurants = Location.find(location_id).restaurants
+      else
+        @restaurants = Restaurant.all
+      end
+      respond_to do |format|
+        format.html { render :index }
+        format.json { render json: @restaurants }
+      end
     end
 
     def show
       @restaurant = Restaurant.find(params[:id])
-      # render json: @restaurants
+      respond_to do |format|
+        format.html { render :show }
+        format.json { render json: @location }
+      end
     end
     #
     # def new
