@@ -6,8 +6,7 @@ A user should be able to view restaurant listings
 A user should be able to select a restaurant and view the (drink) menu
 A user should be able to see the wait time at selected restaurant
 A user should be able to select items off a menu
-A user should be able to filter restaurants
-    - Filtering - Two Options
+A user should be able to see restaurants by participating city
 
 
 Icebox:
