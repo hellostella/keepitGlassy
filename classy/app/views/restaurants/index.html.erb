@@ -1,5 +1,34 @@
-<div>
-  <% @restaurants.each do |restaurant| %>
-    <%= restaurant.name %>
-  <% end %>
+
+  <div class="restaurant">
+    <h1> Please Select a Menu Item Below</h1>
+    <ul>
+      <% @restaurants.each do |restaurant| %>
+      <li><%= link_to(restaurant.name, restaurant, data: {restaurant_id: restaurant.id}) %>
+      </li>
+      <% end %>
+    </ul>
+    <ul id="menu">
+        <!-- Placeholder for restaurants. Populated by js -->
+
+      </ul>
+
+    </div>
+  </div>
+  <section class= "tweets">
+
+  </section>
+
+<script>
+$(document).ready(function(){
+  var selectMenu = $('.restaurant')
+  selectMenu.on("click", function(event){
+    fetchLocations(event)
+  });
+})
+</script>
+
+<div id="footer">
+  <div style="float: right;">
+    <p> @hellostella </a>
+  </div>
 </div>

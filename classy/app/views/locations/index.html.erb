@@ -1,15 +1,19 @@
-<div class="city">
-<ul>
-  <% @locations.each do |location| %>
+
+  <div class="city">
+    <h1> Please Select from a Location Below</h1>
+    <ul>
+      <% @locations.each do |location| %>
       <li><%= link_to(location.city, location, data: {location_id: location.id}) %>
       </li>
-  <% end %>
-</ul>
+      <% end %>
+    </ul>
+    <ul id="restaurants">
+        <!-- Placeholder for restaurants. Populated by js -->
 
-<ul id="restaurants"> Restaurants
-  <!-- Placeholder for restaurants. Populated by js -->
-</ul>
+      </ul>
 
+    </div>
+  </div>
 
 
 <script>
@@ -18,5 +22,18 @@ $(document).ready(function(){
   selectCity.on("click", function(event){
     fetchLocations(event)
   });
+
+  var selectRestaurant = $('#rest')
+  selectRestaurant.on("click", function(event){
+    linkRestaurant(event)
+  })
 })
+
+
 </script>
+
+<div id="footer">
+  <div style="float: right;">
+    <p> @hellostella </a>
+    </div>
+</div>

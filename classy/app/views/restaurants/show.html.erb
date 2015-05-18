@@ -1,55 +1,54 @@
-
-<html>
-<head>
-	<title><%= @restaurant.name %> </title>
-</head>
-<body>
-
-	<div id="order-items">
-		<h2>Your Order</h2>
-		<div id="box">
-			<ul>
-			</ul>
-		</div>
-		<h2>Order Now! Ready when you Arrive! </h2>
-		<input type= "textarea" input value= "Enter any Special Requests">
-		<p> Order Total = $ <p>
-			<h2>Ready to Order?<input type= "submit" input id="order"></h2>
-
-
-		</div>
-
-		<div id="content">
-			<h1><%= @restaurant.name %></h1>
-			<h2><span><img src= "<%= @restaurant.image_url %>"></span></h2>
-
-			<h2>Signature Drinks <span class="post-span">Please Choose Below</span></h2>
-			<ul>
-				<% @restaurant.menus.each do |menu| %>
-				<li id= "<%= menu.id %>"><%= menu.drink_name %> : $<%= menu.price %>.00<input type= "submit" id= "selection" value="Select"></li>
-			</ul>
-			<script>
-
-		$(document).ready(function(){
-	  var submitOrder = $('#<%= menu.id %>')
-
-	  submitOrder.on("click", function(event){
-		var userSelection = $('#<%= menu.id %>').val()
-				var drinkName = $("#<%= menu.id %>").text()
-	      $("#box").after('<li id="order-li"></li>')
-				$('#order-li').text( drinkName , userSelection)
-	  })
-	})
-</script>
-    <% end %>
-
-
-	</div>
-
-	<div id="footer">
-		<div style="float: right;">
-
-	</div>
+<div id="order-items">
+  <h2>Your Order</h2>
+  <div id="box">
+    <ul>
+    </ul>
+  </div>
+  <h2>Order Now! Ready when you Arrive! </h2>
+  <p id= "total"> Order Total = $  </p>
+  <h2>Ready to Order?<input type= "submit" input id="order"></h2>
+  <!-- Add AJAX POST request to post to User Orders Model  -->
 </div>
-</body>
-</html>
+<div id="content">
+  <h1><%= @restaurant.name %> |  Current Wait Time:  <%= @restaurant.wait_time %> minutes</h1>
+  <h2><span><img src= "<%= @restaurant.image_url %>"></span></h2>
+  <h2>Signature Drinks <span class="post-span">Please Choose Below</span></h2>
+  <ul>
+    <% @restaurant.menus.each do |menu| %>
+    <li id= "<%= menu.id %>"><%= menu.drink_name %> : $<%= menu.price %>.00<input type= "submit" id= "selection" value="Select"></li>
+  </ul>
+
+<script>
+// display menu items, on select populate current order for user - display drink order items and prices and calculate total
+$(document).ready(function(){
+  var submitOrder = $('#<%= menu.id %>')
+  submitOrder.on("click", function(event){
+    var userSelection = $('#<%= menu.id %>').val()
+    var drinkPrice = $('#<%= menu.price %>')
+    var drinkName = $("#<%= menu.id %>").text()
+    drinkPrice = 12
+    $("#box").after('<li id="order-li"></li>')
+    $('#order-li').text( drinkName , userSelection)
+    $('#total').append( drinkPrice += drinkPrice)
+
+  })
+var makeTheOrder = $('#order')
+makeTheOrder.on('click', function(event){
+  alert('Thank you for your order!')
+})
+})
+</script>
+<% end %>
+</div>
+<div id="footer">
+  <ul>
+    <h1> <%= @restaurant.name %>s Latest Tweets</h1>
+    <!-- # display recent  tweets by restaurant as keyword - calls on Tweet Model  -->
+      <% Tweet.breaking(@restaurant).each do |tweet|%>
+        <div> ***<%=  tweet.text %> **</div >
+  <% end %>
+  </ul>
+  <div style="float: right;">
+    <p> @hellostella </a>
+  </div>
+</div>

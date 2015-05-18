@@ -1,0 +1,73 @@
+
+
+
+  <div class="restaurant">
+    <h1> Please Select a Menu Item Below</h1>
+    <div>
+      <% @restaurants.each do |restaurant| %>
+        <%= restaurant.name %>
+      <% end %>
+    </div>
+
+<div id="wrap">
+  <div id="header">
+    <div id="headerlinks">
+      <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %>
+      <%= link_to 'Sign In', new_user_session_path, :method => :create %>
+    </div>
+    <h1>keepitClassy</h1>
+  </div>
+
+    <div id="wrap">
+      <div id="header">
+        <div id="headerlinks">
+          <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %>
+          <%= link_to 'Sign In', new_user_session_path, :method => :create %>
+        </div>
+        <h1>keepitClassy</h1>
+      </div>
+
+      <div class="restaurant">
+        <h1> Please Select a Menu Item Below</h1>
+        <ul>
+          <% @restaurants.each do |restaurant| %>
+          <li><%= link_to(restaurant.name, restaurant, data: {restaurant_id: restaurant.id}) %>
+          </li>
+          <% end %>
+        </ul>
+        <ul id="menu">
+            <!-- Placeholder for restaurants. Populated by js -->
+
+          </ul>
+
+        </div>
+      </div>
+
+
+    <script>
+    $(document).ready(function(){
+      var selectMenu = $('.restaurant')
+      selectMenu.on("click", function(event){
+        fetchLocations(event)
+      });
+    })
+    </script>
+
+    </ul>
+    <ul id="menu">
+        <!-- Placeholder for menu items. Populated by js -->
+
+      </ul>
+
+    </div>
+  </div>
+
+
+<script>
+$(document).ready(function(){
+  var selectMenu = $('.restaurant')
+  selectMenu.on("click", function(event){
+    fetchLocations(event)
+  });
+})
+</script>
